@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api'
+  baseURL: 'https://tame-erin-fly-veil.cyclic.app/api'
 });
 
 api.interceptors.request.use((config) => {
