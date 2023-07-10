@@ -1,0 +1,26 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login {
+    width: 25%;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px 2px gray;
+}
+
+.textField {
+    margin: 0.8rem;
+}
+
+.button {
+    margin: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
