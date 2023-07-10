@@ -26,22 +26,22 @@ export const userSlice = createSlice({
 
 export const { updateAvatar, updateFollowing } = userSlice.actions
 
-export const loginReduceer = (data, enqueueSnackbar, navigate) => async (dispatch) => {
+export const loginReduceer = (data, enqueueSnackbar) => async (dispatch) => {
   await axios.post('/auth/login', data)
     .then(data => {
       localStorage.setItem('token', data.data.token)
       dispatch(userSlice.actions.updateAvatar(jwt_decode(data.data.token)));
-      navigate('/');
+      window.location.href = '/';
     })
     .catch(err => enqueueSnackbar(err.response.data.error, { variant: 'error' }));
 }
 
-export const registerReduceer = (data, enqueueSnackbar, navigate) => async (dispatch) => {
+export const registerReduceer = (data, enqueueSnackbar) => async (dispatch) => {
   await axios.post('/auth/register', data)
     .then(data => {
       localStorage.setItem('token', data.data.token)
       dispatch(userSlice.actions.updateAvatar(jwt_decode(data.data.token)));
-      navigate('/');
+      window.location.href = '/';
     })
     .catch(err => enqueueSnackbar(err.response.data.error, { variant: 'error' }));
 }
