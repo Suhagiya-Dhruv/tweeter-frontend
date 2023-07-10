@@ -4,18 +4,19 @@ import { useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
 import styles from './style.module.css'
 import { Button, TextField } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 function Login() {
     const dispatch = useDispatch();
     const { enqueueSnackbar } = useSnackbar();
-
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            dispatch(loginReduceer({ username, password }, enqueueSnackbar));
+            dispatch(loginReduceer({ username, password }, enqueueSnackbar, navigate));
         } catch (error) {
             console.error(error);
         }
@@ -24,7 +25,7 @@ function Login() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            dispatch(registerReduceer({ username, password }, enqueueSnackbar));
+            dispatch(registerReduceer({ username, password }, enqueueSnackbar, navigate));
         } catch (error) {
             console.error(error);
         }
